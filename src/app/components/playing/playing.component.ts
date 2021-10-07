@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Player } from 'src/app/entities/player';
-import { Transaction } from 'src/app/entities/transaction';
-import { TokenService } from 'src/app/services/token.service';
-import { UserService } from 'src/app/services/user.service';
+import { Player } from '../../../app/entities/player';
+import { Transaction } from '../../../app/entities/transaction';
+import { TokenService } from '../../../app/services/token.service';
+import { UserService } from '../../../app/services/user.service';
 
 @Component({
   selector: 'app-playing',

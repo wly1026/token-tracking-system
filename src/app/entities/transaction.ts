@@ -1,4 +1,3 @@
-import { Player } from "./player";
 
 export class Transaction {
   description: string;
