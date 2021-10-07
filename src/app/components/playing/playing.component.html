@@ -1,5 +1,12 @@
 
-<!-- <div>Player: {{player.userName}}</div> -->
+<div class= "container">
+  <h3>Welcome: {{player.userName}}!</h3>
+
+  <nav>
+    <a class="nav-link" active routerLink="/login">Log out</a>
+  </nav>
+</div>
+
 
 <div class="container">
   <div class="card" style="width: 18rem;">
@@ -17,7 +24,7 @@
 
   <h3 class="mt-3">Refill your tokens</h3>
 
-  <div class="">
+  <div>
     <label for="amount" class="form-label">How many tokens do you want to refill?</label>
     <div class="row mx-0">
       <div class="col-10 ps-0">
@@ -31,26 +38,18 @@
   </div>
 
   <h3 class="mt-3">Transaction Records</h3>
-<!--
-  <ul>
-    <li *ngFor = "let transaction of transactions">
-    <span>{{transaction.type}}</span>
-    <span>{{transaction.value}}</span>
-    <span>{{transaction.date | date}}</span>
-    </li>
-  </ul> -->
 
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Type</th>
+        <th scope="col">Description</th>
         <th scope="col">Amount</th>
         <th scope="col">Time</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor = "let transaction of transactions">
-        <td>{{transaction.type}}</td>
+        <td>{{transaction.description}}</td>
         <td>{{transaction.value}}</td>
         <td>{{transaction.date}}</td>
       </tr>

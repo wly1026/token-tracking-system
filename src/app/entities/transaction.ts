@@ -1,14 +1,16 @@
 import { Player } from "./player";
 
 export class Transaction {
-  type: string;
+  description: string;
   value: number;
   date: Date;
-  // playerId: string;
+  playerId: string;
 
-  constructor(type: string, value: number, date: Date) {
-    this.type = type;
+
+  constructor(description: string, value: number, date: Date, playerId: string) {
+    this.description = description;
     this.value = value;
     this.date = date;
+    this.playerId = playerId;
   }
 }
