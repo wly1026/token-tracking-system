@@ -22,6 +22,9 @@ export class PlayingComponent implements OnInit {
               private userService: UserService) {
   }
 
+  /**
+   * Initialize player, transactions, currToken.
+   */
   ngOnInit(): void {
     const userId: string = this.route.snapshot.paramMap.get("userId")!;
     this.userService.getPlayer(userId)
@@ -32,6 +35,10 @@ export class PlayingComponent implements OnInit {
     this.getTokens();
   }
 
+  /**
+   * call service to create a refill transation. Update transactions array and currToken
+   * @param amount the amount of tokens
+   */
   refill(amount: string) {
     //validate the amount
     if (!amount || parseInt(amount) <= 0) {
@@ -42,9 +49,11 @@ export class PlayingComponent implements OnInit {
       this.transactions.push(data);
       this.currToken += parseInt(amount);
     });
-    // this.getTokens();
   }
 
+  /**
+   * call service to create a play transaction. Update transactions array and currToken
+   */
   play() {
     // validate if the player has enough tokens
     if (this.currToken < this.tokenPerPlay) {
@@ -56,7 +65,6 @@ export class PlayingComponent implements OnInit {
       this.transactions.push(data);
       this.currToken -= this.tokenPerPlay;
     });
-    // this.getTokens();
   }
 
   getTransactions() {

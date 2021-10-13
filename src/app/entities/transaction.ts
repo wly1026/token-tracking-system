@@ -5,7 +5,6 @@ export class Transaction {
   date: Date;
   playerId: string;
 
-
   constructor(description: string, value: number, date: Date, playerId: string) {
     this.description = description;
     this.value = value;

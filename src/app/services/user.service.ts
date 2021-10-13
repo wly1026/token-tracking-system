@@ -11,6 +11,11 @@ export class UserService {
 
   constructor() { }
 
+  /**
+   * Check the user has been registered. If so, return that user; else, create a user, return it.
+   * @param name
+   * @returns observable of player
+   */
   save(name: string): Observable<Player> {
     let idx = this.players.findIndex(x => x.userName == name);
     let player: Player;
@@ -23,17 +28,30 @@ export class UserService {
     return of(player);
   }
 
+  /**
+   * @param id
+   * @returns observable player by id
+   */
   getPlayer(id: string): Observable<Player> {
     let player = this.players.filter(x => x.id == id)[0];
     return of(player);
   }
 
+  /**
+   * Read the player, add tokens
+   * @param amount the number of tokens
+   * @param id
+   */
   addToken(amount: number, id: string) {
     let idx = this.players.findIndex(x => x.id == id);
     this.players[idx].tokens += amount;
-
   }
 
+  /**
+   * Read the player, minus tokens
+   * @param amount the number of tokens
+   * @param id
+   */
   minusToken(amount: number, id: string) {
     let idx = this.players.findIndex(x => x.id == id);
     this.players[idx].tokens -= amount;

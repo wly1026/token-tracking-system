@@ -19,6 +19,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * call service to create/identify a user
+   * @param name userName which should be unique
+   */
   save(name: string){
       name = name.trim();
       this.userService.save(name)
